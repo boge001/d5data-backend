@@ -1,0 +1,10 @@
+GET /api/hello -> 401 {"error":"Authentication required"}
+GET /api/auth/csrf -> 200
+POST /api/auth/login -> 401
+GET /api/auth/csrf -> 200
+POST /api/auth/login -> 200
+GET /api/hello -> 200 Hello World
+GET /api/auth/csrf -> 200
+POST /api/auth/logout -> 204
+GET /api/hello -> 401 {"error":"Authentication required"}
+PASS: authentication persists in the session and is removed on logout.
